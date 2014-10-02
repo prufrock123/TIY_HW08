@@ -167,6 +167,7 @@ function findLongestWord(words){
     words.sort(function(a, b){
         return a.length> b.length ? -1 : 1;
     })
+    return words;
     return words[0].length
 
     // for (var i=0; i<words.length; i++){
@@ -202,15 +203,122 @@ function filterLongWords(words, i){
 // charFreq("abbabcbdbabdbdbabababcbcbab").
 // ---------------------
 
-function charFreq(string){
+
+function testFreq(string){
+    var characters = {};
+
+    for (var i=0; i<string.length; i++){
+
+        characters[string[i]] = 
+            (characters[string[i]] === undefined) ?
+            1 : 
+            characters[string[i]]+1;
+    }
+    return characters;    
+}
+
+
+// the object characters is empty
+
+// we pass in a string called "hhllo"
+
+// let's set this object characters equal to 
+
+// Does the characters object have a property that is equal to the value of hello at index equal to 0 which is h?
+
+// There is no property h in our characters object so let's define it and set it equal to a value of 1
+
+// loop again with i equal to 1
+
+// Does the characters object have a property that is equal to the value of hello at index equal to 1 which is h?
+
+// Yes, this proprety is defined and has a value equal to 1, so set the value of the characters object whose property is the same
+// as the value of the string at index=1 (which is also h) and let's increment it by 1. So now this property (which is h) is equal
+// to 2.
+
+
+
+
+function charFreq(string) {
+    var freq = {};
+
+    for (var i=0; i<string.length;i++) {
+        var character = string.charAt(i);
+        if (freq[character]) {
+           freq[character]++;
+        } else {
+           freq[character] = 1;
+        }
+    }
+
+    return freq;
+};
+
+
+function binaryCharFreq(string){
     "use strict";
     var charArray = [];
 
     for(var i = 0; i<string.length; i++){
         charArray[i] = string.charCodeAt(i);
     }
+
+    // return charArray
+
+    charArray.map(function binaryIndexOf(searchCharCode) {  // searchCharCode is the 
+        'use strict';
+     
+        var minUpperCharCode = 65  // MinUpperCharCode is the lowest uppercase charcode, 'A'
+        var maxUpperCharCode = 90  // MaxUpperCharCode is the highest uppercase charcode, 'Z'
+        var currentCharCode        // This is the starting midpoint charcode between max and min (90 and 65)
+        // var currentChar;           // This is the character that corresponds to the currentCharCode value 
+
+        while (minUpperCharCode <= maxUpperCharCode) {                      // This will run until the function below increments minUpperCharCode to a value higher than maxUpperCharCode
+            currentCharCode = (minUpperCharCode + maxUpperCharCode)/2 | 0;  // This sets the currentCharCode to an inital value halfway between min and max UpperCharCodes
+            // currentChar = this.fromCharCode(currentCharCode);               // This gets us the character equal to the current CharCode.
+
+            if (currentCharCode < searchCharCode) {                                 
+                minUpperCharCode = currentCharCode + 1;                     // If the currentCharCode is less than the searchCharCode, then set the minUpperCharCode to currentCharCode +1
+            }
+            else if (currentCharCode > searchCharCode) {
+                maxUpperCharCode = currentCharCode -1;                      // If the currentCharCode is more than the searchCharCode, then set the maxUpperCharCode to currentCharCode -1
+            }
+            else {
+                return currentCharCode                                      // If the currentCharCode is neither more, nor less than searchCharCode, then return currentCharCode because it is equal to searchCharCode
+            }
+        }
+        return -1;                                                          // The index of the element which defaults to -1 when not found.
+    });
     return charArray
+
+     // return charArray.map(binaryIndexOf())
 }
+
+// function binaryIndexOf(searchChar) {
+//     'use strict';
+
+ 
+//     var minUpperCharCode = 65  // MinUpperCharCode is the lowest uppercase charcode, 'A'
+//     var maxUpperCharCode = 90  // MaxUpperCharCode is the highest uppercase charcode, 'Z'
+//     var currentCharCode;       // This is the starting midpoint charcode between max and min (90 and 65)
+//     var currentChar;           // This is the character that corresponds to the currentCharCode value 
+
+//     while (minUpperCharCode <= maxUpperCharCode) {                      // This will run until the function below increments minUpperCharCode to a value higher than maxUpperCharCode
+//         currentCharCode = (minUpperCharCode + maxUpperCharCode)/2 | 0;  // This sets the currentCharCode to an inital value halfway between min and max UpperCharCodes
+//         currentChar = this.fromCharCode(currentCharCode);               // This gets us the character equal to the current CharCode.
+
+//         if (currentChar < searchChar) {                                 
+//             minUpperCharCode = currentCharCode + 1;                     // If the currentChar is less than the searched for 
+//         }
+//         else if (currentChar > searchChar) {
+//             maxUpperCharCode = currentCharCode -1;
+//         }
+//         else {
+//             return currentCharCode
+//         }
+//     }
+//     return -1;
+// }
 
 /**
  * Pseudo-Code for my binary search attempt
