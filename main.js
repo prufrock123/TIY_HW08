@@ -106,7 +106,7 @@ function rovarspraket(text){
 
 function sum(array){
     "use strict";
-    var total = 0
+    var total = 0;
     for (var i=0; i<array.length; i++){
         total += array[i]
     }
@@ -115,7 +115,11 @@ function sum(array){
 
 function multiply(array){
     "use strict";
-    //...
+    var product = 1;
+    for (var i=0; i<array.length; i++){
+        product *= array[i]
+    }
+    console.log(product)
 }
 
 // ---------------------
