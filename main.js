@@ -39,7 +39,8 @@
  */
 
 // ---------------------
-// Define a function max() that takes two numbers as arguments and returns the largest of them. Use the if-then-else construct available in Javascript.
+// Define a function max() that takes two numbers as arguments and returns the largest of them. 
+// Use the if-then-else construct available in Javascript.
 // ---------------------
 
 function max(a, b){
@@ -92,7 +93,9 @@ function isVowel(char){
 };
 
 // ---------------------
-// Write a function translate() that will translate a text into "rövarspråket". That is, double every consonant and place an occurrence of "o" in between. For example, translate("this is fun") should return the string "tothohisos isos fofunon".
+// Write a function translate() that will translate a text into "rövarspråket". 
+// That is, double every consonant and place an occurrence of "o" in between. 
+// For example, translate("this is fun") should return the string "tothohisos isos fofunon".
 // ---------------------
 // double every consonant and place an occurrence of "o" in between
 // 
@@ -123,7 +126,8 @@ function rovarspraket2(phrase){
 }
 
 // ---------------------
-// Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.
+// Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers.
+// For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.
 // ---------------------
 
 function sum(array){
@@ -145,7 +149,8 @@ function multiply(array){
 }
 
 // ---------------------
-// Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj".
+// Define a function reverse() that computes the reversal of a string. 
+// For example, reverse("jag testar") should return the string "ratset gaj".
 // ---------------------
 
 function reverse(string){
@@ -170,7 +175,8 @@ function findLongestWord(words){
 }
 
 // ---------------------
-// Write a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
+// Write a function filterLongWords() that takes an array of words and an integer i 
+// and returns the array of words that are longer than i.
 // ---------------------
 
 function filterLongWords(words, i){
@@ -189,10 +195,114 @@ function filterLongWords(words, i){
 }
 
 // ---------------------
-// Write a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
+// Write a function charFreq() that takes a string and builds a frequency 
+// listing of the characters contained in it. 
+// Represent the frequency listing as a Javascript object. 
+// Try it with something like 
+// charFreq("abbabcbdbabdbdbabababcbcbab").
 // ---------------------
 
 function charFreq(string){
     "use strict";
-    //...
+    var charArray = [];
+
+    for(var i = 0; i<string.length; i++){
+        charArray[i] = string.charCodeAt(i);
+    }
+    return charArray
 }
+
+/**
+ * Pseudo-Code for my binary search attempt
+ *
+ * if 65 <= charCode <=90
+ *     upperCase alpha
+ * else if 97 <= charCode <= 122
+ *     lowerCase alpha
+ * else
+ *     not alpha
+ *
+ *
+     * if 65 <= upperCase <= 77
+     *     A-M
+         * if 65 <= A-M <= 71
+         *     A-G
+            * if 65 < A-G <= 68
+            *     A-D
+                * if 65 <= A-D < 67
+                *     A-B
+                    * if 65 = A-B
+                    *     A
+                    * else
+                    *     B     
+                * else
+                *     C-D     
+            * else
+            *     E-G
+         * else
+         *     H-M  
+     * else
+     *     N-Z
+     * 
+     *     
+
+     *
+     *
+     *
+     * 
+     * 
+     * if 97 <= lowerCase <= 109
+     *     a-m
+     * else
+     *     n-z
+ *     
+ *------------
+ *some code from the internet:
+ *
+ * Performs a binary search on the host array. This method can either be
+ * injected into Array.prototype or called with a specified scope like this:
+ * binaryIndexOf.call(someArray, searchElement);
+ *
+ * @param {*} searchElement The item to search for within the array.
+ * @return {Number} The index of the element which defaults to -1 when not found.
+ *
+    function binaryIndexOf(searchElement) {
+        'use strict';
+     
+        var minIndex = 0;
+        var maxIndex = this.length - 1;
+        var currentIndex;
+        var currentElement;
+     
+        while (minIndex <= maxIndex) {
+            currentIndex = (minIndex + maxIndex) / 2 | 0;
+            currentElement = this[currentIndex];
+     
+            if (currentElement < searchElement) {
+                minIndex = currentIndex + 1;
+            }
+            else if (currentElement > searchElement) {
+                maxIndex = currentIndex - 1;
+            }
+            else {
+                return currentIndex;
+            }
+        }
+     
+        return -1;
+    }
+ 
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
