@@ -98,6 +98,19 @@ function isVowel(char){
 // 
 function rovarspraket(text){
     "use strict";
+
+
+
+    textArray = text.split()
+    var vowels = ["a", "e", "i", "o", "u"]
+    for (var i=0; i<textArray.length; i++){
+        if vowels.indexOf(textArray[i])>=1 {
+            return textArray[i] + "o" + textArray[i]
+        } else {
+            return textArray[i]
+        }
+    }
+    
 }
 
 // ---------------------
@@ -153,7 +166,9 @@ function findLongestWord(words){
 
 function filterLongWords(words, i){
     "use strict";
-    //...
+    for (var x=0; x<words.length; x++){
+        return x.
+    }
 }
 
 // ---------------------
