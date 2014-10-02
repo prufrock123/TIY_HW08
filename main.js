@@ -104,13 +104,13 @@ function rovarspraket(text){
     textArray = text.split()
     var vowels = ["a", "e", "i", "o", "u"]
     for (var i=0; i<textArray.length; i++){
-        if vowels.indexOf(textArray[i])>=1 {
+        if vowels.indexOf(textArray[i])>=0 {
             return textArray[i] + "o" + textArray[i]
         } else {
             return textArray[i]
         }
     }
-    
+    textArray.join("");
 }
 
 // ---------------------
