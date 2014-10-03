@@ -402,10 +402,34 @@ function binaryCharFreq(string){
  
  */
 
+// function testTestFreq(string){  // this code doesn't work because it's looking for a property called the entire string parameter inside the empty object. but why doesn't it create a property called "string" in the empty object? Is it because it's trying to loop thru each property in the object? 
 
+//     var emptyObj = {}
 
+//     for (var prop in emptyObj){
+//         if (emptyObj[string] === undefined){
+//             emptyObj[string] = 1;
+//         } else {
+//             emptyObj[string] += 1;
+//         }
+//         return emptyObj;
+//     }
+// }
 
+function testTestFreq(string){ 
 
+    var emptyObj = {}
+
+    for (var prop in string){
+        if (emptyObj[string[prop]] === undefined){
+            emptyObj[string[prop]] = 1;
+        } else {
+            emptyObj[string[prop]] += 1;
+        }
+    }
+    
+    return emptyObj;
+}
 
 
 
